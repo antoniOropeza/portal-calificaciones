@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Calificaciones</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="assets/css/adminlte.css">
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/public/datatables/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">    
+<link href="assets/public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+<link href="assets/public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
+<link href="assets/css/estilo_inicio.css" rel="stylesheet"/>
+<script src="assets/js/modal.js"></script>
+<script>
+
+$(document).ready(function() {
+    $('.modal-igu').on('click', function(event) {
+        $('#modal-iguales').modal('show');
+    });
+});
+
+$(document).ready(function () {
+  $('#descargarArchivo').click(function () {
+    $('#modal-iguales').modal('hide');
+    var archivoURL = $(this).attr('href');
+  });
+});
+
+$(document).ready(function() {
+    $('.modal-dp').on('click', function(event) {
+        $('#modal-dpti').modal('show');
+    });
+});
+
+$(document).ready(function () {
+  $('#descargardpti').click(function () {
+    $('#modal-dpti').modal('hide');
+    var archivoURL = $(this).attr('href');
+  });
+});
+
+$(document).ready(function() {
+    $('.modal-nuevoi').on('click', function(event) {
+        $('#modal-nuevoingreso').modal('show');
+    });
+});
+
+$(document).ready(function () {
+  $('#descargarnuevoi').click(function () {
+    $('#modal-nuevoingreso').modal('hide');
+    var archivoURL = $(this).attr('href');
+  });
+});
+
+$(document).ready(function() {
+    $('.modal-cap').on('click', function(event) {
+        $('#modal-capacitacion').modal('show');
+    });
+});
+
+$(document).ready(function () {
+  $('#descargarcap').click(function () {
+    $('#modal-capacitacion').modal('hide');
+    var archivoURL = $(this).attr('href');
+  });
+});
+
+</script>
+
+</head>
+<body class="hold-transition layout-fixed ">
+
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img  src="assets/img/logo_edu.png" alt="Logo" height="80" width="75">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-amlo navbar-light" >
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="color:#ffffff"></i></a>
+      </li>
+      <!--<li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Pedro Antonio López Oropeza</a>
+      </li>-->
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a id="estadoSeleccionado" class="nav-link" data-toggle="dropdown" href="#" style="font-size:18px;color:#ffffff;">
+        </a>
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-left">
+          <a href="index.html" button class="btn btn-danger dropdown-item">Cerrar Sesión</a>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="principal.html" class="brand-link">
+      <img src="assets/img/logo_edu2.png" alt="Logo" width="50" height="65" class="elevation-3" style="opacity: .8">
+      <strong><span class="brand-text font-weight-light">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span></strong>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+    <!---->
+        <!--Inicio Menú barra lateral-->
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">       
+            <!--Inicio capacitación nuevo ingreso-->
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <p>
+                    Programas Nuevo Ingreso
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+                </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Nuevo Ingreso
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <!--Inicio submenú nuevo ingreso-->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                  <a href="cursoA.html" class="nav-link loader-link">
+                      
+                      <p>Curso A</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <a href="cursoA.html" class="nav-link loader-link">
+                      
+                      <p>Curso B</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+                <!--Fin submenú nuevo ingreso-->
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>    
+                  <p>
+                     Bienestar
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="cursoA.html" class="nav-link loader-link">
+                      
+                      <p>Curso 1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="cursoA.html" class="nav-link loader-link">
+                      
+                      <p>Curso 2</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+              
+                            
+            </ul>
+            
+          </li>
+          <!--Fin capacitación nuevo ingreso-->
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+              Programas Temporales
+            <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="#" class="modal-igu nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Curso Temporal 2024</p>
+                </a>
+              </li>
+              <li class="nav-item">
+              <a href="#" class="modal-dp nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Resultados 2023</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          
+        </ul>
+        <!--Fin Menú barra lateral-->
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <div id="confirmationModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmación</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              ¿Exportar datos a Excel?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="exportToExcel">
+              <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="modal fade" id="modal-default">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Sin registros</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Por el momento no hay información disponible</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+            <a href="index.php" class="btn btn-info" role="button">Regresar</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <div class="modal fade" id="modal-loading">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Cargando datos</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Procesando la información en la tabla, favor de esperar</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <div class="modal fade" id="modal-aprobados">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!--<div class="modal-header">
+              <h4 class="modal-title">Aprobados por programa</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>-->
+            <div class="modal-body">
+              
+              <!--inicio test-->
+              <div class="card">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3">Capacitados</h3>
+                <ul class="nav nav-pills ml-auto p-2">
+                  <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">General</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">2024</a></li>
+                  
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                  <!--GRAFICA 1-->
+                  <div class="chart">
+                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  </div>
+                  <p>
+                  <br>
+                    <strong>450</strong> en <strong>Nuevo Ingreso</strong>
+                  <br>
+                    <strong>694</strong> en <strong>Federalización</strong>
+                  <br>
+                    <strong>866</strong> en <strong>OPD</strong>
+                  </p>
+                  </div>
+                  <!-- /GRAFICA 1-->
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2">
+                  <div class="chart">
+                    <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  </div>
+                  <p>
+                  <br>
+                    <strong>450</strong> en <strong>Nuevo Ingreso </strong>
+                  <br>
+                    <strong>879</strong> en <strong>Federalización  Bienestar</strong>
+                  <br>
+                    <strong>320</strong> en <strong>OPD</strong>
+                  </p>
+                  </div>
+                  <!-- /.tab-pane -->
+                  
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+              <!--final del test -->
+            </div>
+            <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <div class="modal fade" id="modal-transversales">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Aprobados por mes</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="chart">
+                <canvas id="meses_Chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            </div>
+              
+            </div>
+            <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <div class="modal fade" tabindex="-1" id="modal-iguales">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Calificaciones Curso Temporal 1</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Desea descargar archivo "Calificaciones Enero 2024"?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a id="descargarArchivo" href="assets/files/Enero2024.xlsx" class="btn btn-primary" role="button">Aceptar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" id="modal-dpti">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Resultados Diciembre 2023</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Desea descargar archivo "Diciembre-2023"?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a id="descargardpti" href="assets/files/Diciembre2023.xlsx" class="btn btn-primary" role="button">Aceptar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" id="modal-nuevoingreso">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Formato Nuevo ingreso</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Desea descargar formato de enrolamiento masivo?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a id="descargarnuevoi" href="assets/files/Formato_Enrolamiento_Masivo_Nvo_Ingreso.xlsx" class="btn btn-primary" role="button">Aceptar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" id="modal-capacitacion">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Formato capacitación</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Desea descargar formato de enrolamiento masivo?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a id="descargarcap" href="assets/files/Formato_Enrolamiento_Masivo_Transversales.xlsx" class="btn btn-primary" role="button">Aceptar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal de confirmación -->
+  <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConfirmacionLabel">Confirmación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Desea descargar archivo?</p>
+        </div>
+        <div class="modal-footer">
+          <!-- Botón "Aceptar" -->
+          <button type="button" class="btn btn-primary" id="btnAceptar">Aceptar</button>
+          <!-- Botón "Cancelar" -->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de confirmación -->
+  <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><!--Inicio--></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!--Inicio-->
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3 id="fechaTexto"></h3>
+                    <p id="añoTexto"></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-calendar"></i>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                  <div class="inner">
+                  <h3 id="hora"></h3>
+                  <p><br></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-clock"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                  <div class="inner">
+                    <h3>2180</h3>
+                    <p>Aprobados en Programas Nuevo Ingreso</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <a href="#" class="small-box-footer  modal-link">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-gray">
+                  <div class="inner">
+                    <h3>6655</h3>
+                    <p>Aprobados en Capacitación Técnica y Humanística</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <a href="#" class="small-box-footer  modal-transv">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
+              <!-- Left col -->
+              <section class="col-lg-5 connectedSortable">
+                <!--TEST CARD-->
+                <div class="card card-secondary card-outline">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                    <i class="fas fa-map-marker-alt mr-1"></i>
+                    México 2024
+                    </h3>
+                  </div><!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="tab-content p-0">
+                      <div class="chart tab-pane active" id="revenue-chart"
+                           style="position: relative;">
+                           <!--<img src="assets/img/09-NIVEL CENTRAL.png" alt="estado" class="welcome-image">-->
+                           <img id="imagenEstado" src="assets/img/09-NIVEL CENTRAL.png" alt="estado" class="welcome-image">
+                      </div>
+                      
+                    </div>
+                  </div><!-- /.card-body -->
+                </div>
+                <!--END TEST-->
+    
+              </section>
+              <!-- /.Left col -->
+              <!-- right col (We are only adding the ID to make the widgets sortable)-->
+              <section class="col-lg-7">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="card card-secondary card-outline">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="fas fa-bullhorn"></i>
+                      Avisos
+                    </h3>
+                  </div>
+                  <!-- /.card-header -->
+                    <div class="callout callout-success">
+                      <h5>Bienvenido</h5>
+                      <p>Este es el tablero de anuncios. Los cambios y actualizaciones dentro el portal se irán anunciando por este medio</p>
+                    </div>
+                    <div class="callout callout-warning">
+                        <h5>Nuevo Portal</h5>
+      
+                        <p>A partir del mes de <strong>marzo</strong> se comenzará a migrar los usuarios de la plataforma anterior a esta nueva plataforma. Favor de estar atentos a los siguientes cambios.</p>
+                      </div>
+                      <div class="callout callout-info">
+                        <h5>Resultados Diciembre 2023</h5>
+      
+                        <p>Se acaban de cargar los resultados de los cursos en Diciembre 2023.</p>
+                      </div>
+                </div>
+                <!-- /.card -->
+    
+              </section>
+    
+             
+              <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+             
+              <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+    </div>
+    <script>
+             function mostrarHora() {
+                var elementoHora = document.getElementById("hora");
+                var fecha = new Date();
+                var hora = fecha.getHours();
+                var minutos = fecha.getMinutes();
+                var ampm = hora >= 12 ? 'PM' : 'AM';
+                hora = hora % 12;
+                hora = hora ? hora : 12; 
+                elementoHora.innerHTML = hora + ":" + (minutos < 10 ? "0" : "") + minutos + ' ' + ampm;
+            }
+    
+            setInterval(mostrarHora, 1000);
+            
+            var fecha = new Date();
+
+            var dia = fecha.getDate();
+            var mes = fecha.toLocaleString('default', { month: 'long' }); 
+            var año = fecha.getFullYear();
+
+            document.getElementById('fechaTexto').innerText = dia + ' ' + mes;
+            document.getElementById('añoTexto').innerText = año;
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var selectedState = localStorage.getItem('selectedState');
+                if (selectedState) {
+                    document.getElementById('estadoSeleccionado').innerText = selectedState;
+                } else {
+                    document.getElementById('estadoSeleccionado').innerText = "Usuario";
+                }
+            });
+            var estadoSeleccionado = localStorage.getItem('selectedState');
+
+            if(estadoSeleccionado == '15-ESTADO DE MEXICO ORIENTE' || estadoSeleccionado == '16-ESTADO DE MEXICO PONIENTE'){
+                estadoSeleccionado = '15_16-ESTADO DE MEXICO';
+            }
+            if(estadoSeleccionado == '09-NIVEL CENTRAL' || estadoSeleccionado == '35-36 NORTE DEL DISTRITO FEDERAL' || estadoSeleccionado == '37-38 SUR DEL DISTRITO FEDERAL'){
+               estadoSeleccionado = '09-NIVEL CENTRAL';
+            }
+            if(estadoSeleccionado == '31-VERACRUZ NORTE' || estadoSeleccionado == '32-VERACRUZ SUR'){
+                estadoSeleccionado = '31_32-VERACRUZ';
+            }
+
+            var nombreImagen = 'assets/img/' + estadoSeleccionado + '.png';
+
+            var imagenElemento = document.getElementById('imagenEstado');
+
+            imagenElemento.src = nombreImagen;
+            </script>
+   </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+     <strong>División de Capacitación Copyright &copy;2024</strong>
+        Todos los derechos reservados.
+        <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.0
+        </div>
+      </footer>
+    
+    <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    
+    <!-- Bootstrap 4 -->
+    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="assets/plugins/chart.js/Chart.min.js"></script>
+    
+    <!-- DataTables  & Plugins -->
+    
+    <!-- AdminLTE App -->
+    <script src="assets/js/adminlte.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.nav-link').click(function () {
+          $('#loader').show();
+        });
+      });
+    </script>
+
+  <script>
+      //--------------
+      //- GRÁFICA -
+      //--------------
+      
+Chart.Legend.prototype.afterFit = function() {
+    this.height = this.height + 10;
+};
+
+      var areaChartData = {
+      labels  : ['Nuevo Ingreso', 'Bienestar','Federalización', 'OPD'],
+      datasets: [
+        {
+          backgroundColor: [
+            '#2ECC73',
+            '#FFC939',
+            '#FF6239',
+            '#7EC8E3'
+        ],
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [450,634,866,230]
+        }
+      ]
+    }
+    
+    var areaChartData2 = {
+      labels  : ['Nuevo Ingreso', 'Bienestar', 'OPD'],
+      datasets: [
+        {
+          backgroundColor: [
+            '#2ECC73',
+            '#FFC939',
+            '#FF6239',
+        ],
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [130,268,300]
+        }
+      ]
+    }
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+   var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    pieChartData.datasets[0] = temp0
+
+    var pieChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieChartData,
+      options: pieChartOptions
+    })
+    /////////////////////////////////
+
+    var pieChartCanvas2 = $('#pieChart2').get(0).getContext('2d')
+    var pieChartData2 = $.extend(true, {}, areaChartData2)
+    var temp0 = areaChartData2.datasets[0]
+    pieChartData2.datasets[0] = temp0
+
+    var pieChartOptions2 = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(pieChartCanvas2, {
+      type: 'pie',
+      data: pieChartData2,
+      options: pieChartOptions2
+    })
+
+    var transv_areaChartData = {
+      labels  : ['Enero', 'Febrero', 'Marzo', 'Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+      datasets: [
+        {
+          backgroundColor: [
+            '#7EE7AC',
+            '#2ECC71',
+            '#0AC25A',
+            '#065E88',
+            '#3290BE',
+            '#53A6CE',
+            '#FF805F',
+            '#FF6239',
+            '#FF3F0D',
+            '#FF8F0D',
+            '#FFA339',
+            '#FFB55F'
+        ],
+          borderWidth: 1,
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [370,430,570,670,450,834,434,702,533,630,432,600]
+        }
+      ]
+    }
+    
+    //-------------
+    //- BAR CHART -
+    //-------------
+   var lineChartCanvas = $('#meses_Chart').get(0).getContext('2d')
+    var lineChartData = $.extend(true, {}, transv_areaChartData)
+    var temp0 = transv_areaChartData.datasets[0]
+    lineChartData.datasets[0] = temp0
+
+    var lineChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false,
+      legend:         {display: false}
+    }
+
+    new Chart(lineChartCanvas, {
+      type: 'bar',
+      data: lineChartData,
+      options: lineChartOptions
+    })
+  </script>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+</body>
+</html>
